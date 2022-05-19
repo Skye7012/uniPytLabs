@@ -1,0 +1,5 @@
+a = int(input("a = "))
+b = int(input("b = "))
+x = int(input("x = "))
+y = (2*a-4*b)/(3*a+6*b)  - (x**3 - 1)/(x**2 - 1)
+print("y = " + str(y))
