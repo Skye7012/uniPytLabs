@@ -1,19 +1,22 @@
-num = int(input("num = "))
-numStr = str(num)
-num = list(map(int,numStr))
+n = int(input("n = "))
+nums = []
+
+for i in range(n):
+	nums.append(float(input(str(i) + " element = ")))
+
 bools = []
 
 def isSaw(i):
-	a = num[i-1]
-	b = num[i]
-	c = num[i+1]
+	a = nums[i-1]
+	b = nums[i]
+	c = nums[i+1]
 	return a < b and b > c or a > b and b < c
 
-for i in range(1,len(num)-1):
+for i in range(1,len(nums)-1):
 	bools.append(isSaw(i))
 
-try:
+if(False in bools):
 	print(bools.index(False)+1)
-except:
+else:
 	print(0)
 
