@@ -7,7 +7,7 @@ b = b > 0
 c = c > 0
 statements = [a,b,c]
 
-res = [i for i in statements if i in [True]]
+res = [i for i in statements if i == True]
 res = len(res)
 
 if(res == 1):
