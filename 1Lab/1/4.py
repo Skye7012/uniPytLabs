@@ -5,9 +5,7 @@ try:
 		raise Exception("1<=K<=365 !")
 
 	shift = 1
-	res = (k + shift) % 7
-	if(res == 0):
-		res=7
+	res = k % 7 + shift
 	print("res = " + str(res))
 
 except Exception as e:

@@ -1,22 +1,25 @@
 n = int(input("n = "))
-nums = []
+i = 0
+prev = 0
+incr = True
 
-for i in range(n):
-	nums.append(float(input(str(i) + " element = ")))
+def isSaw(now):
+	if(incr and now > prev):
+		return True
+	elif(not incr and now < prev):
+		return True
+	else:
+		return False
 
-bools = []
+for j in range(n):
+	now = float(input(str(j+1) + " element = "))
+	i += 1
+	if(j == 1):
+		incr = True if now > prev else False
+	if(not isSaw(now) and i > 1):
+		break
+	prev = now
+	incr = not incr
 
-def isSaw(i):
-	a = nums[i-1]
-	b = nums[i]
-	c = nums[i+1]
-	return a < b and b > c or a > b and b < c
-
-for i in range(1,len(nums)-1):
-	bools.append(isSaw(i))
-
-if(False in bools):
-	print(bools.index(False)+1)
-else:
-	print(0)
+print(i-1)
 

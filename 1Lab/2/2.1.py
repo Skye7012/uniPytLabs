@@ -1,7 +1,6 @@
 try:
 	num = int(input("num = "))
-	numStr = str(num)
-	num = [int(i) for i in numStr]
+	len = len(str(num))
 	a = int(input("a = "))
 	z = int(input("z = "))
 	
@@ -11,12 +10,16 @@ try:
 	if(z < 2 or z > 5):
 		raise Exception("2<=z<=4 !")
 
-	aCount = [i for i in num if i == a]
-	aCount = len(aCount)
-	zCount = [i for i in num if i%z==0]
-	zCount = len(zCount)
-	aBiggerCount = [i for i in num if i > a]
-	aBiggerCount = len(aBiggerCount)
+	aCount, zCount, aBiggerCount = 0,0,0
+
+	x = len
+	while (x != 0):
+		x = int(num / 10)
+		y = num % 10
+		aCount = aCount + 1 if y == a else aCount
+		zCount = zCount + 1 if y % z == 0 else zCount
+		aBiggerCount = aBiggerCount + 1 if y > a else aBiggerCount
+		num = x
 
 	print(str(aCount) + " раз в num встречается цифра а")
 	print(str(zCount) + "  цифр, кратных z")

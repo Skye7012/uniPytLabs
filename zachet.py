@@ -34,8 +34,6 @@ class Student(Person):
 	def display(self):
 		print("I am student")
 		print(self)
-		# print(super().__str__())
-		# print("course = ", self.course)
   
 	def __str__(self):
 		return super().__str__() + ", course = " + str(self.course)
