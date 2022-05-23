@@ -1,14 +1,15 @@
-path = "7-8Lab/2/dates.txt"
-pathM = "7-8Lab/2/monhts.txt"
-pathY = "7-8Lab/2/years.txt"
+path = "7-8Lab/3/text.txt"
 
 with open(path, 'r') as file:
-	dates = file.readlines()
-	
-with open(pathM, 'w') as fileM:
-	with open(pathY, 'w') as fileY:
-		mY = list(map(lambda x : x.split('/')[1:3], dates))
-		fileM.write('\n'.join([i[0] for i in mY]))
-		fileY.write(''.join([i[1] for i in mY]))
+	text = file.read()
 
+print(text)
+	
+with open(path, 'w') as file:
+	text = text.split()
+	text.reverse()
+	text = min(text, key=len)
+	file.write(text)
+
+print(text)
 print('done')
