@@ -1,5 +1,16 @@
 alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
 
+def getKey(decr, enc):
+	key = []
+	for i in range(len(decr)):
+		n = len(alphabet)
+		encI = getIndex(enc[i])
+		decI = getIndex(decr[i])
+		t = (n - decI + encI) % n
+		# t = abs(encI - decI)
+		key.append(t)
+	return key
+
 def getIndex(char):
 	return alphabet.find(char)+1
 
@@ -32,5 +43,13 @@ def decrypt(text, key):
 # print(text)
 # decr = decrypt(text, 1234)
 # print(decr)
-text = 'машинамолококолесосок'
-print(encrypt(text, 12984753623))
+# text = 'машинамолококолесосок'
+# text = encrypt(text, 12984753623)
+# print(text)
+# print(encrypt('молоко', 12984753623))
+# print(encrypt('машина', 12984753623))
+# print(encrypt('колесо', 12984753623))
+# print(encrypt('сок', 12984753623))
+
+# decr = decrypt(text, 12984753623)
+# print(decr)
